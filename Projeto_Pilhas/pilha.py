@@ -1,25 +1,26 @@
-class Pilha_estatica:
-    def __init__(self, tamanho):
-        self.Tamaho = tamanho
-        self.UltimoIndice = -1
-        self.Pilha = [None] * tamanho
+class Pilha:
+    def __init__(self, comprimento):
+        self.tamanho = comprimento
+        self.ultimo_indice = -1
+        self.pilha = []
         
     def vazia(self):
-        return self.UltimoIndice == -1
+        return self.ultimo_indice == -1
     
     def cheia(self):
-        return self.UltimoIndice == self.Tamanho - 1
+        return self.ultimo_indice == self.tamanho - 1
     
     def empilhar(self, elemento):
         if self.cheia():
             print(f'\nERRO: Lista cheia')
-        self.Pilha.append(elemento)
-        self.UltimoIndice += 1 
+        else:
+            self.pilha.append(elemento)
+            self.ultimo_indice += 1
        
     def desempilhar(self):
         if self.vazia():
             print(f'\nERRO: Lista vazia')
-            return None
-        ElementoRetirado = self.Pilha.pop(self.Pilha.UltimoIndice)
-        self.UltimoIndice -= 1
-        return ElementoRetirado
+        else:
+            elemento_retirado = self.pilha.pop(self.ultimo_indice)
+            self.ultimo_indice -= 1
+            return elemento_retirado
