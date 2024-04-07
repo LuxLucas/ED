@@ -1,3 +1,10 @@
+<!-- VAR -->
+
+[url-logo-java]: https://img.shields.io/badge/Java-F14902?style=for-the-badge&logo=openjdk
+[url-logo-python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+
+<!-- INÍCIO -->
+
 # Estrutura de Dados 
 
 ## **Professora:** _Christine Vieira_
@@ -24,5 +31,4 @@ Alguns exemplos comuns de estruturas de dados incluem:
 - **Árvores:** Uma estrutura de dados hierárquica que consiste em nós conectados por arestas, com um nó sendo designado como a raiz da árvore.
 - **Grafos:** Uma coleção de nós conectados por arestas, onde cada aresta pode ter um peso associado a ela.
 
-[url-logo-java]: https://img.shields.io/badge/Java-F14902?style=for-the-badge&logo=openjdk
-[url-logo-python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+******************
