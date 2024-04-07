@@ -7,7 +7,8 @@
 
 # Estrutura de Dados 
 
-## **Professora:** _Christine Vieira_
+**Autor:** _Lucas Pizoni Flôres_  
+**Professora:** _Christine Vieira_
 
 [![Java][url-logo-java]](# 'Java') [![Python][url-logo-python]](# 'Python')
 
