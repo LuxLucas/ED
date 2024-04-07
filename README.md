@@ -1,8 +1,10 @@
 # Estrutura de Dados 
 
+## **Professora:** _Christine Vieira_
+
 [![Java][url-logo-java]](# 'Java') [![Python][url-logo-python]](# 'Python')
 
-## Resumo
+### Resumo
 
 Estrutura de Dados é o nome dado a uma matéria na universidade Satc que mostra diferentes maneiras de lidar com dados durante a execução de um programa. Em sala de aula é usado 
 a linguagem de programação Python, porém no tempo livre quero fazer versões utilizando Java.
