@@ -2,27 +2,27 @@ from collections import deque
 
 class Fila:
     def __init__(self):
-        self.Fila = deque()
+        self.fila = deque()
     
     def enfileirar(self, elemento):
-        self.Fila.append(elemento)
+        self.fila.append(elemento)
     
     def desenfileirar(self):
-        if not self.isVazio():
-            self.Fila.popleft()
+        if not self.is_vazio():
+            self.fila.popleft()
 
     def tamanho(self):
-        Tamanho = len(self.Fila)
-        return Tamanho
+        tamanho = len(self.fila)
+        return tamanho
     
-    def isVazio(self):
-        EstadoFila = self.tamanho() == 0
-        return EstadoFila
+    def is_vazio(self):
+        estado_fila = self.tamanho() == 0
+        return estado_fila
     
-    def mostrarPrimeiroElemento(self):
-        if not self.isVazio():
-            PrimeiroElemento = self.Fila[0]
-            return PrimeiroElemento
+    def obter_primeiro_elemento(self):
+        if not self.is_vazio():
+            primeiro_elemento = self.fila[0]
+            return primeiro_elemento
         else:
             return None
         

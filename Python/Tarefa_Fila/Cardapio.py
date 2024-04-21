@@ -1,142 +1,142 @@
 class Cardapio:
     def __init__(self):
-        self.NomeTipo = self.iniciarNomeTipo()
-        self.NomeLanche = self.iniciarNomeLanche()
-        self.PrecoLanche = self.iniciarPrecoLanche()
-        self.NomeBebida = self.iniciarNomeBebida()
-        self.PrecoBebida = self.iniciarPrecoBebida()
-        self.NomeSobremesa = self.iniciarNomeSobremesa()
-        self.PrecoSobremesa = self.iniciarPrecoSobremesa()
+        self.nome_tipo = self.iniciar_nome_tipo()
+        self.nome_lanche = self.iniciar_nome_lanche()
+        self.preco_lanche = self.iniciar_preco_lanche()
+        self.nome_bebida = self.iniciar_nome_bebida()
+        self.preco_bebida = self.iniciar_preco_bebida()
+        self.nome_sobremesa = self.iniciar_nome_sobremesa()
+        self.preco_sobremesa = self.iniciar_preco_sobremesa()
 
 
-    def iniciarNomeTipo(self):
-        NomeTipo = ['Lanche', 
+    def iniciar_nome_tipo(self):
+        nome_tipo = ['Lanche', 
                     'Bebida', 
                     'Sobremesa']
-        return NomeTipo
+        return nome_tipo
 
 
-    def iniciarNomeLanche(self):
-        NomePedido = ['Chicken Bacon Catupiry',
+    def iniciar_nome_lanche(self):
+        nome_lanche = ['Chicken Bacon Catupiry',
                       'Whopper Bacon Catupiry',
                       'Chicken Júnior',
                       'BK Original',
                       'Rodeio']
                       
-        return NomePedido
+        return nome_lanche
     
 
-    def iniciarPrecoLanche(self):
-        PrecoLanche = [25.67, 24.45, 18.30, 20.87, 22.58]
-        return PrecoLanche
+    def iniciar_preco_lanche(self):
+        preco_lanche = [25.67, 24.45, 18.30, 20.87, 22.58]
+        return preco_lanche
     
 
-    def iniciarNomeBebida(self):
-        NomeBebida = ['Refrigerante',
+    def iniciar_nome_bebida(self):
+        nome_bebida = ['Refrigerante',
                       'Suco Natural',
                       'Água']
-        return NomeBebida
+        return nome_bebida
     
 
-    def iniciarPrecoBebida(self):
-        PrecoBebida = [2.5, 3, 2]
-        return PrecoBebida
+    def iniciar_preco_bebida(self):
+        preco_bebida = [2.5, 3, 2]
+        return preco_bebida
     
 
-    def iniciarNomeSobremesa(self):
-        NomeSobremesa = ['Sorvete',
+    def iniciar_nome_sobremesa(self):
+        nome_sobremesa = ['Sorvete',
                          'Bolo']
-        return NomeSobremesa
+        return nome_sobremesa
     
-    def iniciarPrecoSobremesa(self):
-        PrecoSobremesa = [5, 7]
-        return PrecoSobremesa
-    
-
-    def identificadorInLanche(self, identificador):
-        IdentificadorEncontrado = identificador >= 0 and identificador <= len(self.NomeLanche)-1
-        return IdentificadorEncontrado
+    def iniciar_preco_sobremesa(self):
+        preco_sobremesa = [5, 7]
+        return preco_sobremesa
     
 
-    def identificadorInBebida(self, identificador):
-        IdentificadorEncontrado = identificador >= 0 and identificador <= len(self.NomeBebida)-1
-        return IdentificadorEncontrado
+    def encontrar_identificador_em_lanche(self, identificador):
+        identificador_encontrado = identificador >= 0 and identificador <= len(self.nome_lanche)-1
+        return identificador_encontrado
     
 
-    def identificadorInSobremesa(self, identificador):
-        IdentificadorEncontrado = identificador >= 0 and identificador<=len(self.NomeSobremesa)-1
-        return IdentificadorEncontrado
+    def encontrar_identificador_em_bebida(self, identificador):
+        identificador_encontrado = identificador >= 0 and identificador <= len(self.nome_bebida)-1
+        return identificador_encontrado
+    
+
+    def encontrar_identificador_em_sobremesa(self, identificador):
+        identificador_encontrado = identificador >= 0 and identificador<=len(self.nome_sobremesa)-1
+        return identificador_encontrado
         
 
-    def validarIdentificador(self, identificador, tipo):
+    def validar_identificador(self, identificador, tipo):
         match tipo:
-            case 0: return self.identificadorInLanche(identificador)
-            case 1: return self.identificadorInBebida(identificador)
-            case 2: return self.identificadorInSobremesa(identificador)
+            case 0: return self.encontrar_identificador_em_lanche(identificador)
+            case 1: return self.encontrar_identificador_em_bebida(identificador)
+            case 2: return self.encontrar_identificador_em_sobremesa(identificador)
             case _: return False
 
 
-    def procurarNomeTipoPedido(self, tipo):
+    def procurar_nome_do_tipo_de_pedido(self, tipo):
         match tipo:
-            case 0: return self.NomeTipo[0]
-            case 1: return self.NomeTipo[1]
-            case 2: return self.NomeTipo[2]
+            case 0: return self.nome_tipo[0]
+            case 1: return self.nome_tipo[1]
+            case 2: return self.nome_tipo[2]
             case _: return None
 
 
-    def procurarNomeLanche(self, identificador):
-        NomeDoLanche = self.NomeLanche[identificador]
-        return NomeDoLanche
+    def procurar_nome_de_lanche_por_identificador(self, identificador):
+        nome_do_lanche = self.nome_lanche[identificador]
+        return nome_do_lanche
 
 
-    def procurarNomeBebida(self, identificador):
-        NomeDaBebida = self.NomeBebida[identificador]
-        return NomeDaBebida
+    def procurar_nome_de_bebida_por_identificador(self, identificador):
+        nome_da_bebida = self.nome_bebida[identificador]
+        return nome_da_bebida
     
 
-    def procurarNomeSobremesa(self, identificador):
-        NomeDaSobremesa = self.NomeSobremesa[identificador]
-        return NomeDaSobremesa
+    def procurar_nome_de_sobremesa_por_identificador(self, identificador):
+        nome_da_sobremesa = self.nome_sobremesa[identificador]
+        return nome_da_sobremesa
 
 
-    def procurarNomePedido(self, identificador, tipo):
+    def procurar_nome_pedido(self, identificador, tipo):
         match tipo:
-            case 0: return self.procurarNomeLanche(identificador)
-            case 1: return self.procurarNomeBebida(identificador)
-            case 2: return self.procurarNomeSobremesa(identificador)
+            case 0: return self.procurar_nome_de_lanche_por_identificador(identificador)
+            case 1: return self.procurar_nome_de_bebida_por_identificador(identificador)
+            case 2: return self.procurar_nome_de_sobremesa_por_identificador(identificador)
             case _: None
 
 
-    def procurarPrecoLanche(self, identificador):
-        PrecoDoLanche = self.PrecoLanche[identificador]
-        return PrecoDoLanche
+    def procurar_preco_lanche(self, identificador):
+        preco_do_lanche = self.preco_lanche[identificador]
+        return preco_do_lanche
 
 
-    def procurarPrecoBebida(self, identificador):
-        PrecoDaBebida = self.PrecoBebida[identificador]
-        return PrecoDaBebida
+    def procurar_preco_bebida(self, identificador):
+        preco_da_bebida = self.preco_bebida[identificador]
+        return preco_da_bebida
     
 
-    def procurarPrecoSobremesa(self, identificador):
-        PrecoDaSobremesa = self.PrecoSobremesa[identificador]
-        return PrecoDaSobremesa
+    def procurar_preco_sobremesa(self, identificador):
+        preco_da_sobremesa = self.preco_sobremesa[identificador]
+        return preco_da_sobremesa
 
 
-    def procurarPrecoPedido(self, identificador, tipo):
+    def procurar_preco_pedido(self, identificador, tipo):
         match tipo:
-            case 0: return self.procurarPrecoLanche(identificador)
-            case 1: return self.procurarPrecoBebida(identificador)
-            case 2: return self.procurarPrecoSobremesa(identificador)
+            case 0: return self.procurar_preco_lanche(identificador)
+            case 1: return self.procurar_preco_bebida(identificador)
+            case 2: return self.procurar_preco_sobremesa(identificador)
             case _: None
 
 
-    def mostarCardapio(self):
-        NomeCardapio = [self.NomeLanche, self.NomeBebida, self.NomeSobremesa]
-        PrecoCardapio = [self.PrecoLanche, self.PrecoBebida, self.PrecoSobremesa]
+    def mostrar_cardapio(self):
+        nomes_no_cardapio = [self.nome_lanche, self.nome_bebida, self.nome_sobremesa]
+        precos_no_cardapio = [self.preco_lanche, self.preco_bebida, self.preco_sobremesa]
 
         print(f'{" CARDÁPIO ":=^70}')
 
-        for tipo in range(len(self.NomeTipo)):
-            print(f'\nTipo:{tipo} - Nome:{self.NomeTipo[tipo].upper()}')
-            for index in range(len(NomeCardapio[tipo])):
-                print(f'|--- Identificador: {index:2,}| Nome: {NomeCardapio[tipo][index]:<25}| Preço: R${PrecoCardapio[tipo][index]:4,.2f}')
+        for tipo in range(len(self.nome_tipo)):
+            print(f'\nTipo:{tipo} - Nome:{self.nome_tipo[tipo].upper()}')
+            for index in range(len(nomes_no_cardapio[tipo])):
+                print(f'|--- Identificador: {index:2,}| Nome: {nomes_no_cardapio[tipo][index]:<25}| Preço: R${precos_no_cardapio[tipo][index]:4,.2f}')

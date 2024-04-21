@@ -3,27 +3,27 @@ from Cardapio import Cardapio
 
 
 class Menu:
-    def limparConsole(self):
+    def limpar_console(self):
         if name == 'nt':
             system('cls')
         if name == 'posix':
             system('clear')
 
-    def principal(self):
-        self.limparConsole()
+    def mostrar_principal_opcoes(self):
+        self.limpar_console()
         print('1 - Fazer pedido')
-        print('2 - Pedido atual')
+        print('2 - pedido atual')
         print('3 - Mostar pedidos')
         print('0 - Encerrar programa')
-        Comando = input('\nSeu Comando: ')
-        return Comando
+        comando = input('\nSeu Comando: ')
+        return comando
     
 
-    def mostrarCardapio(self):
-        self.limparConsole()
-        CardapioMenu = Cardapio()
-        CardapioMenu.mostarCardapio()
+    def mostrar_cardapio(self):
+        self.limpar_console()
+        cardapio_menu = Cardapio()
+        cardapio_menu.mostrar_cardapio()
         print(f'\n{" NOVO PEDIDO ":=^70}')
-        Tipo = input('\nTipo: ')
-        Identificador = input('Identificador: ')
-        return Tipo, Identificador
+        tipo = input('\nTipo: ')
+        identificador = input('Identificador: ')
+        return tipo, identificador
