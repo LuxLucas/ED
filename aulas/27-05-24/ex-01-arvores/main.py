@@ -1,4 +1,4 @@
-from NodoArvore import NodoArvore
+from ArvoreBinaria import ArvoreBinaria
 
 
 def tem_esquerda(no):
@@ -46,9 +46,8 @@ def obter_no_mais_proximo_da_pesquisa(pesquisa, no):
 
 
 def existe_na_arvore(pesquisa, raiz):
-    resultado_encontrado = False
     no = raiz
-    while not (resultado_encontrado or resultado_encontrado is None):
+    while True:
         if valor_e_igual(pesquisa, no):
             return True
         if tem_filhos(no):
@@ -58,15 +57,12 @@ def existe_na_arvore(pesquisa, raiz):
 
 
 def main():
-    raiz = NodoArvore(43)
+    raiz = ArvoreBinaria(43)
 
-    raiz.esquerda = NodoArvore(11)
-    raiz.direita = NodoArvore(62)
+    raiz.alterar_esquerda(ArvoreBinaria(chave=11, esquerda=ArvoreBinaria(9), direita=ArvoreBinaria(41), pai=raiz))
+    raiz.alterar_direita(ArvoreBinaria(chave=62, esquerda=ArvoreBinaria(48), direita=ArvoreBinaria(95), pai=raiz))
 
-    raiz.direita.esquerda = NodoArvore(48)
-    raiz.direita.direita = NodoArvore(95)
-    raiz.esquerda.esquerda = NodoArvore(9)
-    raiz.direita.direita = NodoArvore(41)
+    print(existe_na_arvore(45,raiz))
 
 
 if __name__ == '__main__':
