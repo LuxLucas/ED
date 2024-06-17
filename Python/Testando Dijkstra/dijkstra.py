@@ -1,49 +1,6 @@
 """
 Privei o atributo __grafo para testar a privacidade dos objetos
 """
-class TabelaDijkstra:
-    def __init__(self, origem, destino=None, vertices:tuple=None):
-        self.destino = destino
-        self.origem = origem
-        self.__tabela = dict(vertice = list(), distancia = list(), antecessor = list())
-        self.__vertices_visitados = set()
-        self.__vertices_proximos_ao_destino = set()
-        self.__inserir_vertices(vertices)
-        self.__inserir_distancias()
-        self.__inserir_antecessor()
-
-    def esta_vazio(self, objeto) -> bool:
-        return not bool(objeto)
-
-    def __inserir_vertices(self, grafo:tuple):
-        if not self.esta_vazio(grafo):
-            for vertice in grafo:
-                self.__tabela['vertice'].append(vertice)
-
-    def inserir_proximos_ao_destino(self, *vertices):
-        for vertice in vertices:
-            self.__vertices_proximos_ao_destino.add(vertice)
-
-    def __inserir_distancias(self):
-        if not (self.esta_vazio(self.__tabela['vertice']) and self.esta_vazio(self.origem)):
-            for distancia in self.__tabela['vertice']:
-                self.__tabela['distancia'].append(None if distancia != self.origem else 0) 
-
-    def __inserir_antecessor(self):
-        if not (self.esta_vazio(self.__tabela['vertice']) and self.esta_vazio(self.origem)):
-            for antecessor in self.__tabela['vertice']:
-                if antecessor == self.origem: 
-                    self.__tabela['antecessor'].append(self.origem)
-                else: self.__tabela['antecessor'].append(None) 
-
-    def obter_index(self, pesquisa, filtro) -> int:
-        index = self.__tabela[filtro].index(pesquisa)
-        return index
-
-    def mostrar_tabela(self):
-        for linha in self.__tabela.keys():
-            print(f'{linha}: {self.__tabela[linha]}')
-
 class Grafo:
     def __init__(self):
         self.__grafo = dict()
@@ -125,13 +82,74 @@ class Grafo:
                     self.mostrados.append(tuple((vertice, aresta[0])))
         del self.mostrados
 
-    def dijkstra(self, inicio, fim = None):
-        vertices = self.vertices()
-        tabela = TabelaDijkstra(inicio, fim, vertices)
-        tabela.mostrar_tabela()
+    def criar_tabela_dijkstra(self, inicio, fim):
+        self.__tabela = TabelaDijkstra()
+        self.__tabela.criar_tabela(self.vertices(), inicio, fim)
+        self.__tabela.inserir_proximos_ao_destino(self.arestas_no_vertice(fim))
+
+    def __foi_visitado(self, vertice):
+        return vertice in self.__vistados
+
+    def buscar_por_dijkstra(self, inicio, fim=None, reverse=False):
+        self.criar_tabela_dijkstra(inicio, fim)
+        self.__vistados = set()
+        vertice_atual = inicio
+        while len(self.__vistados) < len(self.vertices()):
+            for vertice in :
+                if self.__foi_visitado(vertice_atual): continue
+        
+
+class TabelaDijkstra():
+    def __init__(self):
+        self.__tabela = dict()   
+
+    def esta_vazio(self, objeto) -> bool:
+        return not bool(objeto)
+
+    def __inserir_vertices(self, grafo:tuple):
+        if not self.esta_vazio(grafo):
+            self.__tabela['vertice'] = list()
+            for vertice in grafo:
+                self.__tabela['vertice'].append(vertice)
+
+    def inserir_proximos_ao_destino(self, aresta):
+        if self.destino:
+            self.__vertices_proximos_ao_destino = set()
+            for vertice in aresta:
+                self.__vertices_proximos_ao_destino.add(vertice)
+
+    def __inserir_distancia(self):
+        if not (self.esta_vazio(self.__tabela['vertice']) and self.esta_vazio(self.origem)):
+            self.__tabela['distancia'] = list()
+            for distancia in self.__tabela['vertice']:
+                self.__tabela['distancia'].append(None if distancia != self.origem else 0) 
+
+    def __inserir_antecessor(self):
+        if not (self.esta_vazio(self.__tabela['vertice']) and self.esta_vazio(self.origem)):
+            self.__tabela['antecessor'] = list()
+            for antecessor in self.__tabela['vertice']:
+                if antecessor == self.origem: 
+                    self.__tabela['antecessor'].append(self.origem)
+                else: self.__tabela['antecessor'].append(None) 
+
+    def criar_tabela(self, vertices:tuple, origem, destino=None):
+        self.origem = origem
+        self.destino = destino 
+        self.__inserir_vertices(vertices)
+        self.__inserir_distancia()
+        self.__inserir_antecessor()
+
+    def obter_index(self, pesquisa, filtro) -> int:
+        index = self.__tabela[filtro].index(pesquisa)
+        return index
+
+    def mostrar_tabela(self):
+        for linha in self.__tabela.keys():
+            print(f'{linha}: {self.__tabela[linha]}')
 
 grafo = Grafo()
 grafo.adicionar_vertice('A','B','C')
 grafo.adicionar_aresta('A','B', 8)
 grafo.adicionar_aresta('A','C', 14)
-grafo.dijkstra('A')
+
+grafo.mostrar_grafo()
