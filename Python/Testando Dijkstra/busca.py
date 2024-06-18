@@ -29,4 +29,5 @@ grafo.adicionar_aresta('G','I', 8)
 # Arestas de I
 grafo.adicionar_aresta('I','H', 5)
 
-grafo.mostrar_grafo()
+grafo.buscar_por_dijkstra('D')
+grafo.mostrar_tabela_dijkstra()
